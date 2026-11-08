@@ -7,7 +7,8 @@
     
     /* Northform Studios Refined Colour System */
     --midnight-ink: #151A24;
-    --warm-ivory: #F7F5F0;
+    --warm-ivory: #F8F6F1;
+    --light-stone: #F2EFE9;
     --white: #FFFFFF;
     --electric-blue: #496BFF;
     --ice-blue: #DCE5FF;
@@ -41,9 +42,14 @@
   }
 }
 
+/* Tactile Grain Texture Overlay (Subtle, Print-Grade Warmth) */
+.grain-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.032'/%3E%3C/svg%3E");
+}
+
 /* Glassmorphism System (Used Selectively) */
 .glass-nav {
-  background: rgba(247, 245, 240, 0.85);
+  background: rgba(248, 246, 241, 0.88);
   backdrop-filter: blur(18px) saturate(160%);
   -webkit-backdrop-filter: blur(18px) saturate(160%);
   border: 1px solid rgba(21, 26, 36, 0.08);
@@ -51,31 +57,40 @@
 }
 
 .glass-nav-scrolled {
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(21, 26, 36, 0.08);
-  box-shadow: 0 10px 30px -10px rgba(21, 26, 36, 0.08);
+  box-shadow: 0 10px 30px -10px rgba(21, 26, 36, 0.06);
 }
 
 .glass-card {
   background: rgba(255, 255, 255, 0.96);
   border: 1px solid rgba(21, 26, 36, 0.06);
-  box-shadow: 0 1px 3px rgba(21, 26, 36, 0.02), 0 10px 30px -10px rgba(21, 26, 36, 0.04);
+  box-shadow: 0 1px 3px rgba(21, 26, 36, 0.02), 0 12px 32px -8px rgba(21, 26, 36, 0.04);
 }
 
 .glass-pill {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(21, 26, 36, 0.08);
 }
 
 .glass-dark-card {
-  background: rgba(21, 26, 36, 0.92);
+  background: rgba(21, 26, 36, 0.94);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Editorial Shadows & Framing */
+.studio-frame-shadow {
+  box-shadow: 0 20px 50px -15px rgba(21, 26, 36, 0.1), 0 0 0 1px rgba(21, 26, 36, 0.05);
+}
+
+.studio-card-shadow {
+  box-shadow: 0 10px 30px -10px rgba(21, 26, 36, 0.06), 0 0 0 1px rgba(21, 26, 36, 0.04);
 }
 
 /* Restrained micro-interactions & floating */
@@ -99,7 +114,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #F7F5F0;
+  background: #F8F6F1;
 }
 
 ::-webkit-scrollbar-thumb {

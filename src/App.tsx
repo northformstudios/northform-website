@@ -35,7 +35,7 @@ function NotFound() {
           </Link>
           <Link
             to="/work"
-            className="px-6 py-2.5 rounded-xl bg-white text-[#151A24] text-xs font-semibold border border-[#151A24]/10 hover:bg-[#F7F5F0] transition-colors"
+            className="px-6 py-2.5 rounded-xl bg-white text-[#151A24] text-xs font-semibold border border-[#151A24]/10 hover:bg-[#F8F6F1] transition-colors"
           >
             Showcase Work
           </Link>
@@ -49,7 +49,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <div className="flex flex-col min-h-screen w-full max-w-full overflow-x-hidden bg-[#F7F5F0] text-[#151A24] selection:bg-[#496BFF] selection:text-white">
+      <div className="flex flex-col min-h-screen w-full max-w-full overflow-x-hidden bg-[#F8F6F1] grain-overlay text-[#151A24] selection:bg-[#496BFF] selection:text-white relative">
         <Navbar />
         <main className="grow w-full max-w-full overflow-x-hidden">
           <Routes>

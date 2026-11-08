@@ -12,11 +12,13 @@ import {
   Clock,
   Compass,
   Code,
-  Rocket
+  Rocket,
+  ExternalLink,
+  Eye
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import HeroVisual from '../components/HeroVisual';
-import ProjectCard from '../components/ProjectCard';
+import BrowserMockup from '../components/BrowserMockup';
 import ServiceCard from '../components/ServiceCard';
 import {
   PageTransition,
@@ -92,19 +94,26 @@ export default function Home() {
     },
   ];
 
+  // Domain map for browser chrome mockup
+  const domainMap: Record<string, string> = {
+    'estate-one': 'estateone.private.ng',
+    'maison-kitchen': 'maisonkitchen.luxury',
+    'solara-energy': 'solaraenergy.store',
+  };
+
   return (
     <PageTransition>
-      <div className="min-h-screen pt-24 sm:pt-28">
+      <div className="min-h-screen pt-20 sm:pt-24">
 
         {/* =========================================================================
             HERO SECTION
             ========================================================================= */}
-        <section className="relative px-4 sm:px-6 md:px-8 pt-6 pb-16 sm:pb-24 overflow-hidden">
+        <section className="relative px-4 sm:px-6 md:px-8 pt-8 pb-20 sm:pb-28 overflow-hidden bg-linear-to-b from-[#F8F6F1] via-[#FAF8F5] to-[#F2EFE9]">
           
-          {/* Subtle Ambient Top Light Tint */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-xl h-64 bg-linear-to-b from-[#DCE5FF]/40 to-transparent rounded-full blur-3xl pointer-events-none" />
+          {/* Subtle Ambient Radial Lighting */}
+          <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full max-w-2xl h-80 bg-linear-to-b from-[#DCE5FF]/40 via-[#F5EDE0]/40 to-transparent rounded-full blur-3xl pointer-events-none" />
 
-          <div className="max-w-[1240px] mx-auto">
+          <div className="max-w-[1240px] mx-auto relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
               
               {/* Left Narrative Column */}
@@ -115,7 +124,7 @@ export default function Home() {
                   initial={{ opacity: 0, y: -4 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white border border-[#151A24]/10 shadow-2xs"
+                  className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white/90 border border-[#151A24]/10 shadow-2xs backdrop-blur-xs"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-[#C8F169]" />
                   <span className="text-[11px] font-bold tracking-widest text-[#151A24] uppercase font-mono">
@@ -148,19 +157,19 @@ export default function Home() {
                 >
                   <Link
                     to="/quote"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 rounded-xl bg-[#151A24] text-white text-sm sm:text-base font-semibold transition-all duration-200 hover:bg-[#496BFF] hover:shadow-lg active:scale-98 group"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3.5 rounded-xl bg-[#151A24] text-white text-sm sm:text-base font-semibold transition-all duration-200 hover:bg-[#496BFF] hover:shadow-xl active:scale-98 group"
                   >
                     <span>Start a Project</span>
                     <ArrowUpRight className="w-4 h-4 text-[#C8F169] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </Link>
 
-                  <Link
-                    to="/work"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 rounded-xl bg-white hover:bg-[#F7F5F0] text-[#151A24] text-sm sm:text-base font-semibold border border-[#151A24]/10 transition-all duration-200 active:scale-98"
+                  <a
+                    href="#selected-work"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3.5 rounded-xl bg-white hover:bg-[#F8F6F1] text-[#151A24] text-sm sm:text-base font-semibold border border-[#151A24]/10 transition-all duration-200 active:scale-98 shadow-2xs"
                   >
                     <span>Explore Our Work</span>
                     <ArrowRight className="w-4 h-4 text-[#707887]" />
-                  </Link>
+                  </a>
                 </motion.div>
 
                 {/* Studio Credibility Indicator */}
@@ -194,9 +203,9 @@ export default function Home() {
         {/* =========================================================================
             SECTION A: CONCISE INTRODUCTION
             ========================================================================= */}
-        <section className="px-4 sm:px-6 md:px-8 py-12 sm:py-16 border-y border-[#151A24]/6 bg-white">
+        <section className="px-4 sm:px-6 md:px-8 py-16 sm:py-20 bg-white border-y border-[#151A24]/6 relative">
           <div className="max-w-[1240px] mx-auto">
-            <FadeIn className="max-w-3xl mx-auto text-center space-y-3">
+            <FadeIn className="max-w-3xl mx-auto text-center space-y-4">
               <span className="text-[10px] font-mono font-bold text-[#496BFF] uppercase tracking-widest">
                 WHAT WE DO
               </span>
@@ -213,85 +222,359 @@ export default function Home() {
         {/* =========================================================================
             SECTION B: SERVICES (4 CARDS)
             ========================================================================= */}
-        <section className="px-4 sm:px-6 md:px-8 py-16 sm:py-24 max-w-[1240px] mx-auto">
-          <FadeIn className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-4">
-            <div className="space-y-2">
-              <span className="text-[10px] font-mono font-bold text-[#496BFF] uppercase tracking-widest">
-                STUDIO CAPABILITIES
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-bold font-heading text-[#151A24] tracking-tight">
-                Services tailored for growth.
-              </h2>
-            </div>
-            <Link
-              to="/services"
-              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#151A24] hover:text-[#496BFF] transition-colors"
-            >
-              <span>Explore all capabilities &amp; deliverables</span>
-              <ArrowRight className="w-4 h-4 text-[#496BFF]" />
-            </Link>
-          </FadeIn>
-
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6" staggerDelay={0.06}>
-            {SERVICES_DATA.map((service) => (
-              <StaggerItem key={service.id}>
-                <ServiceCard service={service} />
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </section>
-
-        {/* =========================================================================
-            SECTION C: SELECTED WORK (3 DEMONSTRATION PROJECTS)
-            ========================================================================= */}
-        <section className="px-4 sm:px-6 md:px-8 py-16 sm:py-24 bg-white border-y border-[#151A24]/6">
-          <div className="max-w-[1240px] mx-auto space-y-12 sm:space-y-16">
-            
-            <FadeIn className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-              <div className="space-y-2 max-w-xl">
+        <section className="px-4 sm:px-6 md:px-8 py-20 sm:py-28 bg-[#F2EFE9] relative">
+          <div className="max-w-[1240px] mx-auto">
+            <FadeIn className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-4">
+              <div className="space-y-2">
                 <span className="text-[10px] font-mono font-bold text-[#496BFF] uppercase tracking-widest">
-                  SELECTED SHOWCASE
+                  STUDIO CAPABILITIES
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-bold font-heading text-[#151A24] tracking-tight">
-                  Our demonstration work.
+                  Services tailored for growth.
                 </h2>
-                <p className="text-xs sm:text-sm text-[#707887] leading-relaxed">
-                  Rather than showing static mockups, we design and build complete, production-grade web platforms. Explore these three interactive concept demonstrations below.
-                </p>
               </div>
               <Link
-                to="/work"
-                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#151A24] hover:text-[#496BFF] transition-colors shrink-0"
+                to="/services"
+                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#151A24] hover:text-[#496BFF] transition-colors"
               >
-                <span>View full portfolio</span>
+                <span>Explore all capabilities &amp; deliverables</span>
                 <ArrowRight className="w-4 h-4 text-[#496BFF]" />
               </Link>
             </FadeIn>
 
-            <StaggerContainer className="grid grid-cols-1 lg:grid-cols-3 gap-6" staggerDelay={0.08}>
-              {AGENCY_CONFIG.projects.map((project) => (
-                <StaggerItem key={project.id}>
-                  <ProjectCard project={project} />
+            <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8" staggerDelay={0.06}>
+              {SERVICES_DATA.map((service, idx) => (
+                <StaggerItem key={service.id}>
+                  <ServiceCard service={service} index={idx + 1} />
                 </StaggerItem>
               ))}
             </StaggerContainer>
+          </div>
+        </section>
 
-            <FadeIn className="p-4 sm:p-5 rounded-2xl bg-[#F7F5F0] border border-[#151A24]/6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <div className="space-y-0.5">
-                <span className="text-xs font-semibold text-[#151A24]">
-                  Notice of Authenticity:
-                </span>
-                <p className="text-xs text-[#707887]">
-                  These projects were conceptualized, art-directed, and coded entirely by NORTHFORM STUDIOS to demonstrate real-world performance across key commercial industries.
+        {/* =========================================================================
+            SECTION C: SELECTED WORK — CURATED EDITORIAL CASE STUDIES (RE-DESIGNED)
+            ========================================================================= */}
+        <section id="selected-work" className="px-4 sm:px-6 md:px-8 py-24 sm:py-32 bg-[#F8F6F1] border-y border-[#151A24]/6 relative">
+          <div className="max-w-[1240px] mx-auto space-y-20 sm:space-y-28">
+            
+            {/* Section Header */}
+            <FadeIn className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-[#151A24]/8">
+              <div className="space-y-2 max-w-xl">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-white border border-[#151A24]/10 text-xs font-mono font-semibold uppercase text-[#151A24] shadow-2xs">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#496BFF]" />
+                  <span>CURATED DESIGN CASE STUDIES</span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-[#151A24] tracking-tight">
+                  Craft in action.
+                </h2>
+                <p className="text-xs sm:text-sm text-[#707887] leading-relaxed pt-1">
+                  We believe prospective clients judge an agency by the craft of its work. Below are three complete, production-grade platforms engineered to set new industry standards.
                 </p>
               </div>
+
               <Link
-                to="/quote"
-                className="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-[#151A24] text-white text-xs font-semibold hover:bg-[#496BFF] transition-colors shrink-0"
+                to="/work"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-xs sm:text-sm font-semibold text-[#151A24] border border-[#151A24]/10 hover:border-[#496BFF] hover:text-[#496BFF] transition-all shadow-2xs shrink-0"
               >
-                <span>Commission a Project</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#C8F169]" />
+                <span>Explore Full Portfolio</span>
+                <ArrowRight className="w-4 h-4 text-[#496BFF]" />
               </Link>
+            </FadeIn>
+
+            {/* Project 01: Estate One (Editorial Luxury) */}
+            {AGENCY_CONFIG.projects[0] && (
+              <FadeIn className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+                {/* Left: Narrative & Credentials (5 cols) */}
+                <div className="lg:col-span-5 space-y-6 order-2 lg:order-1">
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs font-mono font-bold text-[#496BFF] tracking-wider uppercase">
+                      CASE STUDY 01
+                    </span>
+                    <span className="w-1 h-1 rounded-full bg-[#707887]" />
+                    <span className="text-xs font-mono text-[#707887] uppercase">
+                      Real Estate &amp; Architecture
+                    </span>
+                  </div>
+
+                  <div className="space-y-3">
+                    <h3 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#151A24] tracking-tight">
+                      Estate One
+                    </h3>
+                    <p className="text-xs sm:text-sm font-medium text-[#496BFF] font-sans">
+                      {AGENCY_CONFIG.projects[0].tagline}
+                    </p>
+                    <p className="text-xs sm:text-sm text-[#707887] leading-relaxed">
+                      {AGENCY_CONFIG.projects[0].shortDescription}
+                    </p>
+                  </div>
+
+                  {/* Curated Highlights */}
+                  <div className="space-y-2.5 pt-2">
+                    <div className="flex items-center gap-2 text-xs text-[#151A24]">
+                      <CheckCircle2 className="w-4 h-4 text-[#496BFF] shrink-0" />
+                      <span className="font-medium">Instant residence filtering by location &amp; typology</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-[#151A24]">
+                      <CheckCircle2 className="w-4 h-4 text-[#496BFF] shrink-0" />
+                      <span className="font-medium">Private viewing concierge with automated calendar scheduling</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-[#151A24]">
+                      <CheckCircle2 className="w-4 h-4 text-[#496BFF] shrink-0" />
+                      <span className="font-medium">Editorial layout eliminating cluttered traditional portals</span>
+                    </div>
+                  </div>
+
+                  {/* Tech Specs */}
+                  <div className="flex flex-wrap gap-1.5 pt-1">
+                    {['React 19', 'TypeScript', 'Tailwind CSS', 'Sub-second SPA'].map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-2.5 py-1 rounded-md text-[10px] font-mono font-medium bg-white text-[#151A24] border border-[#151A24]/8 shadow-2xs"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Actions */}
+                  <div className="pt-3 flex flex-wrap items-center gap-3">
+                    <Link
+                      to="/work/estate-one"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#151A24] text-white text-xs font-semibold hover:bg-[#496BFF] transition-all duration-200 shadow-md group"
+                    >
+                      <span>Explore Case Study</span>
+                      <ArrowUpRight className="w-3.5 h-3.5 text-[#C8F169] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </Link>
+
+                    <Link
+                      to="/work/estate-one"
+                      className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-[#151A24] text-xs font-semibold border border-[#151A24]/10 hover:border-[#151A24]/20 transition-colors shadow-2xs"
+                    >
+                      <Eye className="w-3.5 h-3.5 text-[#707887]" />
+                      <span>Interactive Preview</span>
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Right: Studio Browser Mockup (7 cols) */}
+                <div className="lg:col-span-7 order-1 lg:order-2">
+                  <Link to="/work/estate-one" className="block cursor-pointer">
+                    <BrowserMockup
+                      desktopImage={AGENCY_CONFIG.projects[0].desktopScreenshot}
+                      mobileImage={AGENCY_CONFIG.projects[0].mobileScreenshot}
+                      title="Estate One"
+                      domain={domainMap['estate-one']}
+                      aspectRatio="16/10"
+                    />
+                  </Link>
+                </div>
+              </FadeIn>
+            )}
+
+            {/* Project 02: Maison Kitchen (Hospitality & Fine Dining — Alternating Layout) */}
+            {AGENCY_CONFIG.projects[1] && (
+              <FadeIn className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center pt-8">
+                {/* Left: Studio Browser Mockup (7 cols) */}
+                <div className="lg:col-span-7 order-1">
+                  <Link to="/work/maison-kitchen" className="block cursor-pointer">
+                    <BrowserMockup
+                      desktopImage={AGENCY_CONFIG.projects[1].desktopScreenshot}
+                      mobileImage={AGENCY_CONFIG.projects[1].mobileScreenshot}
+                      title="Maison Kitchen"
+                      domain={domainMap['maison-kitchen']}
+                      aspectRatio="16/10"
+                    />
+                  </Link>
+                </div>
+
+                {/* Right: Narrative & Credentials (5 cols) */}
+                <div className="lg:col-span-5 space-y-6 order-2">
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs font-mono font-bold text-[#496BFF] tracking-wider uppercase">
+                      CASE STUDY 02
+                    </span>
+                    <span className="w-1 h-1 rounded-full bg-[#707887]" />
+                    <span className="text-xs font-mono text-[#707887] uppercase">
+                      Hospitality &amp; Dining
+                    </span>
+                  </div>
+
+                  <div className="space-y-3">
+                    <h3 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#151A24] tracking-tight">
+                      Maison Kitchen
+                    </h3>
+                    <p className="text-xs sm:text-sm font-medium text-[#496BFF] font-sans">
+                      {AGENCY_CONFIG.projects[1].tagline}
+                    </p>
+                    <p className="text-xs sm:text-sm text-[#707887] leading-relaxed">
+                      {AGENCY_CONFIG.projects[1].shortDescription}
+                    </p>
+                  </div>
+
+                  {/* Curated Highlights */}
+                  <div className="space-y-2.5 pt-2">
+                    <div className="flex items-center gap-2 text-xs text-[#151A24]">
+                      <CheckCircle2 className="w-4 h-4 text-[#496BFF] shrink-0" />
+                      <span className="font-medium">Dual-view visual culinary catalog (eliminates PDF drops)</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-[#151A24]">
+                      <CheckCircle2 className="w-4 h-4 text-[#496BFF] shrink-0" />
+                      <span className="font-medium">3-step table reservation dock with .ICS calendar export</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-[#151A24]">
+                      <CheckCircle2 className="w-4 h-4 text-[#496BFF] shrink-0" />
+                      <span className="font-medium">Interactive arrival map with switchable waterfront pins</span>
+                    </div>
+                  </div>
+
+                  {/* Tech Specs */}
+                  <div className="flex flex-wrap gap-1.5 pt-1">
+                    {['React 19', 'TypeScript', 'Tailwind CSS', 'Dynamic Booking'].map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-2.5 py-1 rounded-md text-[10px] font-mono font-medium bg-white text-[#151A24] border border-[#151A24]/8 shadow-2xs"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Actions */}
+                  <div className="pt-3 flex flex-wrap items-center gap-3">
+                    <Link
+                      to="/work/maison-kitchen"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#151A24] text-white text-xs font-semibold hover:bg-[#496BFF] transition-all duration-200 shadow-md group"
+                    >
+                      <span>Explore Case Study</span>
+                      <ArrowUpRight className="w-3.5 h-3.5 text-[#C8F169] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </Link>
+
+                    <Link
+                      to="/work/maison-kitchen"
+                      className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-[#151A24] text-xs font-semibold border border-[#151A24]/10 hover:border-[#151A24]/20 transition-colors shadow-2xs"
+                    >
+                      <Eye className="w-3.5 h-3.5 text-[#707887]" />
+                      <span>Interactive Preview</span>
+                    </Link>
+                  </div>
+                </div>
+              </FadeIn>
+            )}
+
+            {/* Project 03: Solara Energy (Clean Energy E-Commerce) */}
+            {AGENCY_CONFIG.projects[2] && (
+              <FadeIn className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center pt-8">
+                {/* Left: Narrative & Credentials (5 cols) */}
+                <div className="lg:col-span-5 space-y-6 order-2 lg:order-1">
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs font-mono font-bold text-[#496BFF] tracking-wider uppercase">
+                      CASE STUDY 03
+                    </span>
+                    <span className="w-1 h-1 rounded-full bg-[#707887]" />
+                    <span className="text-xs font-mono text-[#707887] uppercase">
+                      Clean Energy &amp; E-Commerce
+                    </span>
+                  </div>
+
+                  <div className="space-y-3">
+                    <h3 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#151A24] tracking-tight">
+                      Solara Energy
+                    </h3>
+                    <p className="text-xs sm:text-sm font-medium text-[#496BFF] font-sans">
+                      {AGENCY_CONFIG.projects[2].tagline}
+                    </p>
+                    <p className="text-xs sm:text-sm text-[#707887] leading-relaxed">
+                      {AGENCY_CONFIG.projects[2].shortDescription}
+                    </p>
+                  </div>
+
+                  {/* Curated Highlights */}
+                  <div className="space-y-2.5 pt-2">
+                    <div className="flex items-center gap-2 text-xs text-[#151A24]">
+                      <CheckCircle2 className="w-4 h-4 text-[#496BFF] shrink-0" />
+                      <span className="font-medium">Clean hardware catalog with kVA ratings &amp; transparent pricing</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-[#151A24]">
+                      <CheckCircle2 className="w-4 h-4 text-[#496BFF] shrink-0" />
+                      <span className="font-medium">Interactive commercial load sizing calculator modal</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-[#151A24]">
+                      <CheckCircle2 className="w-4 h-4 text-[#496BFF] shrink-0" />
+                      <span className="font-medium">Slide-over mini-cart drawer &amp; localized checkout handoff</span>
+                    </div>
+                  </div>
+
+                  {/* Tech Specs */}
+                  <div className="flex flex-wrap gap-1.5 pt-1">
+                    {['React 19', 'TypeScript', 'Tailwind CSS', 'Instant Search', 'Cart Drawer'].map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-2.5 py-1 rounded-md text-[10px] font-mono font-medium bg-white text-[#151A24] border border-[#151A24]/8 shadow-2xs"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Actions */}
+                  <div className="pt-3 flex flex-wrap items-center gap-3">
+                    <Link
+                      to="/work/solara-energy"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#151A24] text-white text-xs font-semibold hover:bg-[#496BFF] transition-all duration-200 shadow-md group"
+                    >
+                      <span>Explore Case Study</span>
+                      <ArrowUpRight className="w-3.5 h-3.5 text-[#C8F169] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </Link>
+
+                    <Link
+                      to="/work/solara-energy"
+                      className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-[#151A24] text-xs font-semibold border border-[#151A24]/10 hover:border-[#151A24]/20 transition-colors shadow-2xs"
+                    >
+                      <Eye className="w-3.5 h-3.5 text-[#707887]" />
+                      <span>Interactive Preview</span>
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Right: Studio Browser Mockup (7 cols) */}
+                <div className="lg:col-span-7 order-1 lg:order-2">
+                  <Link to="/work/solara-energy" className="block cursor-pointer">
+                    <BrowserMockup
+                      desktopImage={AGENCY_CONFIG.projects[2].desktopScreenshot}
+                      mobileImage={AGENCY_CONFIG.projects[2].mobileScreenshot}
+                      title="Solara Energy"
+                      domain={domainMap['solara-energy']}
+                      aspectRatio="16/10"
+                    />
+                  </Link>
+                </div>
+              </FadeIn>
+            )}
+
+            {/* Authenticity Standard Notice */}
+            <FadeIn className="p-6 sm:p-7 rounded-3xl bg-white border border-[#151A24]/8 studio-card-shadow flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+              <div className="space-y-1 max-w-2xl">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#C8F169]" />
+                  <span className="text-xs font-bold font-heading text-[#151A24]">
+                    Studio Authenticity Guarantee
+                  </span>
+                </div>
+                <p className="text-xs text-[#707887] leading-relaxed">
+                  These three platforms were designed, art-directed, and coded entirely by NORTHFORM STUDIOS to demonstrate real-world architecture, mobile performance, and aesthetic capability across key enterprise industries.
+                </p>
+              </div>
+
+              <div className="flex items-center gap-3 shrink-0 w-full sm:w-auto">
+                <Link
+                  to="/quote"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#151A24] text-white text-xs font-semibold hover:bg-[#496BFF] transition-all duration-200"
+                >
+                  <span>Commission a Studio Build</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#C8F169]" />
+                </Link>
+              </div>
             </FadeIn>
 
           </div>
@@ -300,71 +583,73 @@ export default function Home() {
         {/* =========================================================================
             SECTION D: WHY NORTHFORM (CREDIBILITY PILLARS)
             ========================================================================= */}
-        <section className="px-4 sm:px-6 md:px-8 py-16 sm:py-24 max-w-[1240px] mx-auto">
-          <FadeIn className="max-w-2xl mb-12 sm:mb-16 space-y-2">
-            <span className="text-[10px] font-mono font-bold text-[#496BFF] uppercase tracking-widest">
-              WHY NORTHFORM
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold font-heading text-[#151A24] tracking-tight">
-              Craftsmanship grounded in business reality.
-            </h2>
-            <p className="text-xs sm:text-sm text-[#707887]">
-              We make no unverifiable claims of guaranteed sales or search rankings. Instead, we deliver the structural excellence and visual credibility that helps good businesses win.
-            </p>
-          </FadeIn>
+        <section className="px-4 sm:px-6 md:px-8 py-20 sm:py-28 bg-white relative">
+          <div className="max-w-[1240px] mx-auto">
+            <FadeIn className="max-w-2xl mb-12 sm:mb-16 space-y-2">
+              <span className="text-[10px] font-mono font-bold text-[#496BFF] uppercase tracking-widest">
+                WHY NORTHFORM
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-bold font-heading text-[#151A24] tracking-tight">
+                Craftsmanship grounded in business reality.
+              </h2>
+              <p className="text-xs sm:text-sm text-[#707887]">
+                We make no unverifiable claims of guaranteed sales or search rankings. Instead, we deliver the structural excellence and visual credibility that helps good businesses win.
+              </p>
+            </FadeIn>
 
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.05}>
-            {whyChoosePillars.map((pillar, idx) => {
-              const Icon = pillar.icon;
-              return (
-                <StaggerItem key={idx}>
-                  <div className="h-full p-6 sm:p-7 rounded-2xl bg-white border border-[#151A24]/6 hover:border-[#151A24]/15 shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between space-y-4">
-                    <div className="w-10 h-10 rounded-xl bg-[#F7F5F0] flex items-center justify-center text-[#151A24]">
-                      <Icon className="w-5 h-5 text-[#496BFF]" />
+            <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.05}>
+              {whyChoosePillars.map((pillar, idx) => {
+                const Icon = pillar.icon;
+                return (
+                  <StaggerItem key={idx}>
+                    <div className="h-full p-7 rounded-3xl bg-[#F8F6F1] border border-[#151A24]/6 hover:border-[#151A24]/15 hover:bg-white studio-card-shadow transition-all duration-300 flex flex-col justify-between space-y-4">
+                      <div className="w-11 h-11 rounded-2xl bg-white flex items-center justify-center text-[#151A24] border border-[#151A24]/6">
+                        <Icon className="w-5 h-5 text-[#496BFF]" />
+                      </div>
+                      <div className="space-y-2">
+                        <h3 className="text-lg font-bold font-heading text-[#151A24] tracking-tight">
+                          {pillar.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-[#707887] leading-relaxed">
+                          {pillar.desc}
+                        </p>
+                      </div>
                     </div>
-                    <div className="space-y-2">
-                      <h3 className="text-lg font-bold font-heading text-[#151A24] tracking-tight">
-                        {pillar.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-[#707887] leading-relaxed">
-                        {pillar.desc}
-                      </p>
-                    </div>
+                  </StaggerItem>
+                );
+              })}
+
+              {/* Quick Consultation Card */}
+              <StaggerItem>
+                <div className="h-full p-7 rounded-3xl bg-[#151A24] text-white flex flex-col justify-between space-y-4 shadow-xl">
+                  <div className="space-y-2">
+                    <span className="text-[10px] font-mono tracking-widest text-[#C8F169] uppercase font-bold">
+                      DIRECT ADVISORY
+                    </span>
+                    <h3 className="text-lg font-bold font-heading text-white">
+                      Have questions before committing?
+                    </h3>
+                    <p className="text-xs text-[#707887] leading-relaxed">
+                      Message us on WhatsApp or schedule an alignment call to review your scope and target timeline.
+                    </p>
                   </div>
-                </StaggerItem>
-              );
-            })}
-
-            {/* Quick Consultation Card */}
-            <StaggerItem>
-              <div className="h-full p-6 sm:p-7 rounded-2xl bg-[#151A24] text-white flex flex-col justify-between space-y-4 shadow-md">
-                <div className="space-y-2">
-                  <span className="text-[10px] font-mono tracking-widest text-[#C8F169] uppercase font-bold">
-                    DIRECT ADVISORY
-                  </span>
-                  <h3 className="text-lg font-bold font-heading text-white">
-                    Have questions before committing?
-                  </h3>
-                  <p className="text-xs text-[#707887] leading-relaxed">
-                    Message us on WhatsApp or schedule an alignment call to review your scope and target timeline.
-                  </p>
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center justify-between w-full p-3.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/10 text-xs font-semibold text-white transition-colors"
+                  >
+                    <span>Speak with a Lead Builder</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#C8F169]" />
+                  </Link>
                 </div>
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center justify-between w-full p-3 rounded-xl bg-white/10 hover:bg-white/15 border border-white/10 text-xs font-semibold text-white transition-colors"
-                >
-                  <span>Speak with a Lead Builder</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#C8F169]" />
-                </Link>
-              </div>
-            </StaggerItem>
-          </StaggerContainer>
+              </StaggerItem>
+            </StaggerContainer>
+          </div>
         </section>
 
         {/* =========================================================================
             SECTION E: OUR PROCESS (4 STEPS)
             ========================================================================= */}
-        <section className="px-4 sm:px-6 md:px-8 py-16 sm:py-24 bg-white border-y border-[#151A24]/6">
+        <section className="px-4 sm:px-6 md:px-8 py-20 sm:py-28 bg-[#F2EFE9] border-y border-[#151A24]/6 relative">
           <div className="max-w-[1240px] mx-auto space-y-12 sm:space-y-16">
             
             <FadeIn className="text-center max-w-xl mx-auto space-y-2">
@@ -384,12 +669,12 @@ export default function Home() {
                 const StepIcon = step.icon;
                 return (
                   <StaggerItem key={step.number}>
-                    <div className="h-full p-6 sm:p-7 rounded-2xl bg-[#F7F5F0] border border-[#151A24]/6 flex flex-col justify-between space-y-5 relative group hover:bg-white hover:shadow-lg transition-all duration-300">
+                    <div className="h-full p-7 rounded-3xl bg-white border border-[#151A24]/6 flex flex-col justify-between space-y-5 relative group studio-card-shadow hover:shadow-xl transition-all duration-300">
                       <div className="flex items-center justify-between">
                         <span className="text-2xl font-bold font-mono text-[#496BFF]">
                           {step.number}
                         </span>
-                        <div className="w-9 h-9 rounded-xl bg-white group-hover:bg-[#DCE5FF] flex items-center justify-center transition-colors">
+                        <div className="w-10 h-10 rounded-2xl bg-[#F8F6F1] group-hover:bg-[#DCE5FF] flex items-center justify-center transition-colors">
                           <StepIcon className="w-4 h-4 text-[#151A24]" />
                         </div>
                       </div>
@@ -417,8 +702,11 @@ export default function Home() {
         {/* =========================================================================
             SECTION F: FINAL CTA (MIDNIGHT INK WITH LIME ACCENTS)
             ========================================================================= */}
-        <section className="px-4 sm:px-6 md:px-8 py-16 sm:py-24 max-w-[1240px] mx-auto">
-          <FadeIn className="relative rounded-3xl bg-[#151A24] text-white p-8 sm:p-12 md:p-16 overflow-hidden border border-white/10 shadow-2xl">
+        <section className="px-4 sm:px-6 md:px-8 py-20 sm:py-28 max-w-[1240px] mx-auto">
+          <FadeIn className="relative rounded-3xl bg-[#151A24] text-white p-8 sm:p-14 md:p-16 overflow-hidden border border-white/10 shadow-2xl">
+            {/* Subtle Ambient Radial Lighting in CTA */}
+            <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-[#496BFF]/15 blur-3xl pointer-events-none" />
+
             <div className="relative z-10 max-w-2xl space-y-6">
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-white/10 border border-white/10 text-xs font-mono text-[#C8F169]">
                 <Sparkles className="w-3.5 h-3.5" />
