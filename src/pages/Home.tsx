@@ -347,13 +347,25 @@ export default function Home() {
                       <ArrowUpRight className="w-3.5 h-3.5 text-[#C8F169] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </Link>
 
-                    <Link
-                      to="/work/estate-one"
-                      className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-[#151A24] text-xs font-semibold border border-[#151A24]/10 hover:border-[#151A24]/20 transition-colors shadow-2xs"
-                    >
-                      <Eye className="w-3.5 h-3.5 text-[#707887]" />
-                      <span>Interactive Preview</span>
-                    </Link>
+                    {AGENCY_CONFIG.projects[0].previewUrl ? (
+                      <a
+                        href={AGENCY_CONFIG.projects[0].previewUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-[#151A24] text-xs font-semibold border border-[#151A24]/10 hover:border-[#496BFF] hover:text-[#496BFF] transition-colors shadow-2xs"
+                      >
+                        <ExternalLink className="w-3.5 h-3.5 text-[#496BFF]" />
+                        <span>Interactive Preview</span>
+                      </a>
+                    ) : (
+                      <Link
+                        to="/work/estate-one"
+                        className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-[#151A24] text-xs font-semibold border border-[#151A24]/10 hover:border-[#151A24]/20 transition-colors shadow-2xs"
+                      >
+                        <Eye className="w-3.5 h-3.5 text-[#707887]" />
+                        <span>Interactive Preview</span>
+                      </Link>
+                    )}
                   </div>
                 </div>
 
@@ -450,13 +462,25 @@ export default function Home() {
                       <ArrowUpRight className="w-3.5 h-3.5 text-[#C8F169] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </Link>
 
-                    <Link
-                      to="/work/maison-kitchen"
-                      className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-[#151A24] text-xs font-semibold border border-[#151A24]/10 hover:border-[#151A24]/20 transition-colors shadow-2xs"
-                    >
-                      <Eye className="w-3.5 h-3.5 text-[#707887]" />
-                      <span>Interactive Preview</span>
-                    </Link>
+                    {AGENCY_CONFIG.projects[1].previewUrl ? (
+                      <a
+                        href={AGENCY_CONFIG.projects[1].previewUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-[#151A24] text-xs font-semibold border border-[#151A24]/10 hover:border-[#496BFF] hover:text-[#496BFF] transition-colors shadow-2xs"
+                      >
+                        <ExternalLink className="w-3.5 h-3.5 text-[#496BFF]" />
+                        <span>Interactive Preview</span>
+                      </a>
+                    ) : (
+                      <Link
+                        to="/work/maison-kitchen"
+                        className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-[#151A24] text-xs font-semibold border border-[#151A24]/10 hover:border-[#151A24]/20 transition-colors shadow-2xs"
+                      >
+                        <Eye className="w-3.5 h-3.5 text-[#707887]" />
+                        <span>Interactive Preview</span>
+                      </Link>
+                    )}
                   </div>
                 </div>
               </FadeIn>
@@ -527,13 +551,25 @@ export default function Home() {
                       <ArrowUpRight className="w-3.5 h-3.5 text-[#C8F169] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </Link>
 
-                    <Link
-                      to="/work/solara-energy"
-                      className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-[#151A24] text-xs font-semibold border border-[#151A24]/10 hover:border-[#151A24]/20 transition-colors shadow-2xs"
-                    >
-                      <Eye className="w-3.5 h-3.5 text-[#707887]" />
-                      <span>Interactive Preview</span>
-                    </Link>
+                    {AGENCY_CONFIG.projects[2].previewUrl ? (
+                      <a
+                        href={AGENCY_CONFIG.projects[2].previewUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-[#151A24] text-xs font-semibold border border-[#151A24]/10 hover:border-[#496BFF] hover:text-[#496BFF] transition-colors shadow-2xs"
+                      >
+                        <ExternalLink className="w-3.5 h-3.5 text-[#496BFF]" />
+                        <span>Interactive Preview</span>
+                      </a>
+                    ) : (
+                      <Link
+                        to="/work/solara-energy"
+                        className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-[#151A24] text-xs font-semibold border border-[#151A24]/10 hover:border-[#151A24]/20 transition-colors shadow-2xs"
+                      >
+                        <Eye className="w-3.5 h-3.5 text-[#707887]" />
+                        <span>Interactive Preview</span>
+                      </Link>
+                    )}
                   </div>
                 </div>
 
