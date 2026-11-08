@@ -96,9 +96,9 @@ export default function Home() {
 
   // Domain map for browser chrome mockup
   const domainMap: Record<string, string> = {
-    'estate-one': 'estateone.private.ng',
-    'maison-kitchen': 'maisonkitchen.luxury',
-    'solara-energy': 'solaraenergy.store',
+    'estate-one': 'estate-one.netlify.app',
+    'maison-kitchen': 'maison-kitchen.netlify.app',
+    'solara-energy': 'solaraenergy1.netlify.app',
   };
 
   return (
@@ -355,7 +355,7 @@ export default function Home() {
                         className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-[#151A24] text-xs font-semibold border border-[#151A24]/10 hover:border-[#496BFF] hover:text-[#496BFF] transition-colors shadow-2xs"
                       >
                         <ExternalLink className="w-3.5 h-3.5 text-[#496BFF]" />
-                        <span>Interactive Preview</span>
+                        <span>View Live Website</span>
                       </a>
                     ) : (
                       <Link
@@ -363,7 +363,7 @@ export default function Home() {
                         className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-[#151A24] text-xs font-semibold border border-[#151A24]/10 hover:border-[#151A24]/20 transition-colors shadow-2xs"
                       >
                         <Eye className="w-3.5 h-3.5 text-[#707887]" />
-                        <span>Interactive Preview</span>
+                        <span>View Live Website</span>
                       </Link>
                     )}
                   </div>
@@ -371,7 +371,13 @@ export default function Home() {
 
                 {/* Right: Studio Browser Mockup (7 cols) */}
                 <div className="lg:col-span-7 order-1 lg:order-2">
-                  <Link to="/work/estate-one" className="block cursor-pointer">
+                  <a
+                    href={AGENCY_CONFIG.projects[0].previewUrl || "/work/estate-one"}
+                    target={AGENCY_CONFIG.projects[0].previewUrl ? "_blank" : undefined}
+                    rel={AGENCY_CONFIG.projects[0].previewUrl ? "noopener noreferrer" : undefined}
+                    className="block cursor-pointer"
+                    title="View Live Website in New Tab"
+                  >
                     <BrowserMockup
                       desktopImage={AGENCY_CONFIG.projects[0].desktopScreenshot}
                       mobileImage={AGENCY_CONFIG.projects[0].mobileScreenshot}
@@ -379,7 +385,7 @@ export default function Home() {
                       domain={domainMap['estate-one']}
                       aspectRatio="16/10"
                     />
-                  </Link>
+                  </a>
                 </div>
               </FadeIn>
             )}
@@ -389,7 +395,13 @@ export default function Home() {
               <FadeIn className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center pt-8">
                 {/* Left: Studio Browser Mockup (7 cols) */}
                 <div className="lg:col-span-7 order-1">
-                  <Link to="/work/maison-kitchen" className="block cursor-pointer">
+                  <a
+                    href={AGENCY_CONFIG.projects[1].previewUrl || "/work/maison-kitchen"}
+                    target={AGENCY_CONFIG.projects[1].previewUrl ? "_blank" : undefined}
+                    rel={AGENCY_CONFIG.projects[1].previewUrl ? "noopener noreferrer" : undefined}
+                    className="block cursor-pointer"
+                    title="View Live Website in New Tab"
+                  >
                     <BrowserMockup
                       desktopImage={AGENCY_CONFIG.projects[1].desktopScreenshot}
                       mobileImage={AGENCY_CONFIG.projects[1].mobileScreenshot}
@@ -397,7 +409,7 @@ export default function Home() {
                       domain={domainMap['maison-kitchen']}
                       aspectRatio="16/10"
                     />
-                  </Link>
+                  </a>
                 </div>
 
                 {/* Right: Narrative & Credentials (5 cols) */}
@@ -470,7 +482,7 @@ export default function Home() {
                         className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-[#151A24] text-xs font-semibold border border-[#151A24]/10 hover:border-[#496BFF] hover:text-[#496BFF] transition-colors shadow-2xs"
                       >
                         <ExternalLink className="w-3.5 h-3.5 text-[#496BFF]" />
-                        <span>Interactive Preview</span>
+                        <span>View Live Website</span>
                       </a>
                     ) : (
                       <Link
@@ -478,7 +490,7 @@ export default function Home() {
                         className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-[#151A24] text-xs font-semibold border border-[#151A24]/10 hover:border-[#151A24]/20 transition-colors shadow-2xs"
                       >
                         <Eye className="w-3.5 h-3.5 text-[#707887]" />
-                        <span>Interactive Preview</span>
+                        <span>View Live Website</span>
                       </Link>
                     )}
                   </div>
@@ -559,7 +571,7 @@ export default function Home() {
                         className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-[#151A24] text-xs font-semibold border border-[#151A24]/10 hover:border-[#496BFF] hover:text-[#496BFF] transition-colors shadow-2xs"
                       >
                         <ExternalLink className="w-3.5 h-3.5 text-[#496BFF]" />
-                        <span>Interactive Preview</span>
+                        <span>View Live Website</span>
                       </a>
                     ) : (
                       <Link
@@ -567,7 +579,7 @@ export default function Home() {
                         className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-[#151A24] text-xs font-semibold border border-[#151A24]/10 hover:border-[#151A24]/20 transition-colors shadow-2xs"
                       >
                         <Eye className="w-3.5 h-3.5 text-[#707887]" />
-                        <span>Interactive Preview</span>
+                        <span>View Live Website</span>
                       </Link>
                     )}
                   </div>
@@ -575,7 +587,13 @@ export default function Home() {
 
                 {/* Right: Studio Browser Mockup (7 cols) */}
                 <div className="lg:col-span-7 order-1 lg:order-2">
-                  <Link to="/work/solara-energy" className="block cursor-pointer">
+                  <a
+                    href={AGENCY_CONFIG.projects[2].previewUrl || "/work/solara-energy"}
+                    target={AGENCY_CONFIG.projects[2].previewUrl ? "_blank" : undefined}
+                    rel={AGENCY_CONFIG.projects[2].previewUrl ? "noopener noreferrer" : undefined}
+                    className="block cursor-pointer"
+                    title="View Live Website in New Tab"
+                  >
                     <BrowserMockup
                       desktopImage={AGENCY_CONFIG.projects[2].desktopScreenshot}
                       mobileImage={AGENCY_CONFIG.projects[2].mobileScreenshot}
@@ -583,7 +601,7 @@ export default function Home() {
                       domain={domainMap['solara-energy']}
                       aspectRatio="16/10"
                     />
-                  </Link>
+                  </a>
                 </div>
               </FadeIn>
             )}

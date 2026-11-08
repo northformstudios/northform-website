@@ -28,9 +28,9 @@ export default function Work() {
   });
 
   const domainMap: Record<string, string> = {
-    'estate-one': 'estateone.private.ng',
-    'maison-kitchen': 'maisonkitchen.luxury',
-    'solara-energy': 'solaraenergy.store',
+    'estate-one': 'estate-one.netlify.app',
+    'maison-kitchen': 'maison-kitchen.netlify.app',
+    'solara-energy': 'solaraenergy1.netlify.app',
   };
 
   return (
@@ -210,7 +210,7 @@ export default function Work() {
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-white text-[#151A24] text-xs font-semibold border border-[#151A24]/10 hover:border-[#496BFF] hover:text-[#496BFF] transition-colors shadow-2xs"
                           >
-                            <span>Live Preview</span>
+                            <span>View Live Website</span>
                             <ExternalLink className="w-3.5 h-3.5" />
                           </a>
                         ) : (

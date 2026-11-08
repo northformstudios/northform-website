@@ -14,9 +14,9 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
   const hasLiveDemo = Boolean(project.previewUrl && project.previewUrl.trim() !== '');
 
   const domainMap: Record<string, string> = {
-    'estate-one': 'estateone.private.ng',
-    'maison-kitchen': 'maisonkitchen.luxury',
-    'solara-energy': 'solaraenergy.store',
+    'estate-one': 'estate-one.netlify.app',
+    'maison-kitchen': 'maison-kitchen.netlify.app',
+    'solara-energy': 'solaraenergy1.netlify.app',
   };
 
   const domain = domainMap[project.id] || `${project.slug}.studio`;
@@ -88,7 +88,7 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 text-[11px] font-mono font-semibold text-[#496BFF] hover:underline"
             >
-              <span>Live Site</span>
+              <span>View Live Website</span>
               <ExternalLink className="w-3 h-3" />
             </a>
           ) : (

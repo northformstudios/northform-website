@@ -125,7 +125,7 @@ export const AGENCY_CONFIG: AgencyConfig = {
       desktopScreenshot: "/projects/estate-one-desktop.png",
       mobileScreenshot: "/projects/estate-one-mobile.png",
       catalogScreenshot: "/projects/estate-one-properties.png",
-      previewUrl: "",
+      previewUrl: "https://estate-one.netlify.app/",
       metrics: [
         { label: "Design Aesthetic", value: "Editorial Luxury" },
         { label: "Performance", value: "Sub-second SPA" },
@@ -154,7 +154,7 @@ export const AGENCY_CONFIG: AgencyConfig = {
       desktopScreenshot: "/projects/maison-kitchen-desktop.png",
       mobileScreenshot: "/projects/maison-kitchen-mobile.png",
       catalogScreenshot: "/projects/maison-kitchen-menu.png",
-      previewUrl: "",
+      previewUrl: "https://maison-kitchen.netlify.app/",
       metrics: [
         { label: "Menu Experience", value: "Zero PDF Drops" },
         { label: "Booking Flow", value: "3-Step Concierge" },
@@ -183,7 +183,7 @@ export const AGENCY_CONFIG: AgencyConfig = {
       desktopScreenshot: "/projects/solara-energy-desktop.png",
       mobileScreenshot: "/projects/solara-energy-mobile.png",
       catalogScreenshot: "/projects/solara-energy-shop.png",
-      previewUrl: "",
+      previewUrl: "https://solaraenergy1.netlify.app/",
       metrics: [
         { label: "Checkout Flow", value: "Frictionless SPA" },
         { label: "Product Clarity", value: "Full Hardware Specs" },
