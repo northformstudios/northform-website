@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 64" width="320" height="64" fill="none">
+  <!-- Northform Studios — Monochrome White Logo Lockup -->
+  <g transform="translate(10, 8)">
+    <svg width="48" height="48" viewBox="0 0 64 64" fill="none">
+      <path d="M14 26 L24 16 V50 H14 V26 Z" fill="#FFFFFF" />
+      <path d="M15.5 14 H24.5 L48.5 38 V47 H39.5 L15.5 23 Z" fill="#FFFFFF" />
+      <path d="M40 14 H50 V38 L40 48 V14 Z" fill="#FFFFFF" />
+    </svg>
+  </g>
+  <text x="68" y="34" font-family="'Manrope', -apple-system, sans-serif" font-weight="800" font-size="21" letter-spacing="-0.03em" fill="#FFFFFF">NORTHFORM</text>
+  <text x="69" y="50" font-family="'Inter', -apple-system, sans-serif" font-weight="600" font-size="9.5" letter-spacing="0.28em" fill="#FFFFFF">STUDIOS</text>
+</svg>
