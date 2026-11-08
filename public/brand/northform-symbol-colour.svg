@@ -1,8 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
-  <!-- Northform Studios — Continuous Folded Ribbon Monogram (Colour) -->
-  <path d="M14 25 L25 14 V50 H14 V25 Z" fill="#151A24" />
-  <path d="M14 14 H25 L50 39 V50 H39 L14 25 Z" fill="#496BFF" />
-  <path d="M39 14 H50 V39 L39 50 V14 Z" fill="#151A24" />
-  <path d="M14 25 L25 14" stroke="#DCE5FF" stroke-width="1.25" stroke-linecap="round" />
-  <path d="M39 50 L50 39" stroke="#DCE5FF" stroke-width="1.25" stroke-linecap="round" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" width="200" height="160" fill="none">
+  <path d="M12 152
+C 3 135, 1 85, 2 72
+C 3 26, 22 2, 54 2
+C 78 2, 100 16, 118 52
+C 130 76, 137 106, 146 136
+C 152 152, 166 154, 175 140
+C 188 122, 196 82, 198 48
+C 199 22, 197 4, 192 1
+C 184 4, 172 16, 161 30
+C 150 44, 146 68, 144 88
+C 137 100, 120 118, 98 120
+C 84 112, 77 86, 74 72
+C 68 70, 58 72, 54 78
+C 46 106, 38 135, 26 150
+C 22 155, 16 156, 12 152 Z" fill="#151A24" />
 </svg>

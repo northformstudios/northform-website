@@ -1,12 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 64" width="320" height="64" fill="none">
-  <!-- Northform Studios — Monochrome Black Logo Lockup -->
-  <g transform="translate(10, 8)">
-    <svg width="48" height="48" viewBox="0 0 64 64" fill="none">
-      <path d="M14 26 L24 16 V50 H14 V26 Z" fill="#000000" />
-      <path d="M15.5 14 H24.5 L48.5 38 V47 H39.5 L15.5 23 Z" fill="#000000" />
-      <path d="M40 14 H50 V38 L40 48 V14 Z" fill="#000000" />
-    </svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 160" width="680" height="160" fill="none">
+  <g transform="translate(10, 0)">
+    <path d="M12 152
+C 3 135, 1 85, 2 72
+C 3 26, 22 2, 54 2
+C 78 2, 100 16, 118 52
+C 130 76, 137 106, 146 136
+C 152 152, 166 154, 175 140
+C 188 122, 196 82, 198 48
+C 199 22, 197 4, 192 1
+C 184 4, 172 16, 161 30
+C 150 44, 146 68, 144 88
+C 137 100, 120 118, 98 120
+C 84 112, 77 86, 74 72
+C 68 70, 58 72, 54 78
+C 46 106, 38 135, 26 150
+C 22 155, 16 156, 12 152 Z" fill="#151A24" />
   </g>
-  <text x="68" y="34" font-family="'Manrope', -apple-system, sans-serif" font-weight="800" font-size="21" letter-spacing="-0.03em" fill="#000000">NORTHFORM</text>
-  <text x="69" y="50" font-family="'Inter', -apple-system, sans-serif" font-weight="600" font-size="9.5" letter-spacing="0.28em" fill="#000000">STUDIOS</text>
+  <line x1="230" y1="28" x2="230" y2="132" stroke="#151A24" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round" />
+  <g transform="translate(262, 0)">
+    <text x="0" y="86" fill="#151A24" font-family="Manrope, system-ui, -apple-system, sans-serif" font-size="58" font-weight="800" letter-spacing="0.14em">NORTHFORM</text>
+    <text x="4" y="126" fill="#707887" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="22" font-weight="600" letter-spacing="0.48em">STUDIOS</text>
+  </g>
 </svg>

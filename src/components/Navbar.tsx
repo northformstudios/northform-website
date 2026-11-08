@@ -106,6 +106,12 @@ export default function Navbar() {
               className="md:hidden mt-2 p-3 rounded-2xl bg-white border border-[#151A24]/10 shadow-xl"
             >
               <div className="flex flex-col gap-1">
+                {/* Mobile Drawer Brand Header */}
+                <div className="px-3 py-2 mb-1 flex items-center justify-between border-b border-[#151A24]/6">
+                  <BrandLogo size={28} />
+                  <span className="text-[10px] font-mono text-[#707887]">BUILT WITH INTENT</span>
+                </div>
+
                 {navLinks.map((link) => {
                   const active = isActive(link.path);
                   return (

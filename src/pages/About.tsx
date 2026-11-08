@@ -76,7 +76,7 @@ export default function About() {
                 </h2>
                 <div className="pt-2">
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#F7F5F0] border border-[#151A24]/6">
-                    <NorthformSymbol size={20} />
+                    <NorthformSymbol size={24} />
                     <span className="text-xs font-mono font-semibold text-[#151A24]">BUILT WITH INTENT.</span>
                   </div>
                 </div>
